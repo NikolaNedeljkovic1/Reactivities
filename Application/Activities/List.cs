@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ namespace Application.Activities
                 _context = context;
             }
 
-            public async System.Threading.Tasks.Task<List<Activity>> Handle(Query request, CancellationToken cancellationToken)
+            public async System.Threading.Tasks.Task<List<Activity>> Handle(Query request, CancellationToken token)
             {
                 return await _context.Activities.ToListAsync();
             }
